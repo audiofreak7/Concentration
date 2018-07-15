@@ -12,6 +12,8 @@
 		ADDECCB120FA9071004A4BE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADDECCAF20FA9071004A4BE4 /* Main.storyboard */; };
 		ADDECCB320FA9074004A4BE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADDECCB220FA9074004A4BE4 /* Assets.xcassets */; };
 		ADDECCB620FA9074004A4BE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADDECCB420FA9074004A4BE4 /* LaunchScreen.storyboard */; };
+		ADDECCBF20FABD85004A4BE4 /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDECCBE20FABD85004A4BE4 /* Concentration.swift */; };
+		ADDECCC120FABE40004A4BE4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDECCC020FABE40004A4BE4 /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		ADDECCB220FA9074004A4BE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADDECCB520FA9074004A4BE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADDECCB720FA9074004A4BE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADDECCBE20FABD85004A4BE4 /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
+		ADDECCC020FABE40004A4BE4 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				ADDECCAD20FA9071004A4BE4 /* ViewController.swift */,
 				ADDECCAF20FA9071004A4BE4 /* Main.storyboard */,
+				ADDECCBE20FABD85004A4BE4 /* Concentration.swift */,
+				ADDECCC020FABE40004A4BE4 /* Card.swift */,
 				ADDECCBD20FA91BB004A4BE4 /* Supporting Files */,
 				ADDECCB720FA9074004A4BE4 /* Info.plist */,
 			);
@@ -145,6 +151,8 @@
 			files = (
 				ADDECCAE20FA9071004A4BE4 /* ViewController.swift in Sources */,
 				ADDECCAC20FA9071004A4BE4 /* AppDelegate.swift in Sources */,
+				ADDECCBF20FABD85004A4BE4 /* Concentration.swift in Sources */,
+				ADDECCC120FABE40004A4BE4 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
