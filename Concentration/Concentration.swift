@@ -10,47 +10,66 @@ import Foundation
 
 class Concentration
 {
-    var cards = [Card]()
-    var indexOfOneAndOnlyFaceUpCard: Int? // is nil when no  cards are face up.
+    private(set) var cards = [Card]()
+    
+    private var indexOfOneAndOnlyFaceUpCard: Int?  { // is nil when no cards are face-up. equals the index of the face-up card otherwise.
+        get { // return the calculated value of indexOFOneAndOnlyFaceUpCard
+            var foundIndex: Int?
+            for index in cards.indices {
+                if cards[index].isFaceUp {
+                    if foundIndex == nil {
+                        foundIndex = index
+                    } else {
+                        return nil
+                    }
+                }
+            }
+            return foundIndex
+        }
+        set { // do something based on the fact that indexOfOneAndOnlyFaceUpCard has changed to a "newValue"
+            for index in cards.indices {
+                cards[index].isFaceUp = (index == newValue)
+            }
+        }
+    }
     
     func chooseCard(at index: Int){
-        if !cards[index].isMatched { // if the card is not matched...
-            if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
-                // check if cards matched
+        // following lines checks to see if the chosen index is in the range of card indices. If not, the crash message below is shown.
+        assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index)): chosen index not in cards")
+        if !cards[index].isMatched { // if the card is not matched, do the following ...
+            if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index { //If a card different than the face-up card is
+                // check if cards match
                 if cards[matchIndex].identifier == cards[index].identifier {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
                 }
-                cards[index].isFaceUp = true
-                indexOfOneAndOnlyFaceUpCard = nil
+                cards[index].isFaceUp = true // turn the card you touched face-up
                 
-            } else {
+            } else { // else if there is not a face-up card...
                 // either no cards or 2 cards are face up
-                for flipDownIndex in cards.indices {
-                    cards[flipDownIndex].isFaceUp = false
-                }
-                cards[index].isFaceUp = true
                 indexOfOneAndOnlyFaceUpCard = index
             }
         }
     }
     
     init(numberOfPairsOfCards: Int) {
+        // following lines checks to see if the numberOfPairsOfCards is greater than 0. If not, the crash message below is shown.
+        assert(numberOfPairsOfCards > 0, "Concentration.init(at: \(numberOfPairsOfCards)): you must have at least one pair of cards")
         for _ in 1...numberOfPairsOfCards {
             let card = Card()
             cards += [card,card]
         }
-        // TODO: Shuffle the cards
-        var shuffled = [Card]();
+        // Shuffle the cards
+        var shuffledCards = [Card]();
         
         for _ in 0..<cards.count
         {
             let rand = Int(arc4random_uniform(UInt32(cards.count)))
-            shuffled.append(cards[rand])
+            shuffledCards.append(cards[rand])
             cards.remove(at: rand)
         }
         
-        cards = shuffled
+        cards = shuffledCards
         
     }
 }
